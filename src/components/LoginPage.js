@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import the useNavigate hook
+import { useNavigate } from "react-router-dom";
 import {
   Container,
   LeftSection,
@@ -20,7 +20,7 @@ import LogoImage from "./images/logo.png"; // Make sure the path is correct
 import GraphicImage from "./images/graphic.png"; // Make sure the path is correct
 
 function LoginPage() {
-  const navigate = useNavigate(); // Initialize the navigate function
+  const navigate = useNavigate();
 
   // State for form fields and error
   const [formData, setFormData] = useState({
@@ -40,12 +40,12 @@ function LoginPage() {
 
   // Validation helpers
   const isValidEmail = (email) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email format validation
     return emailRegex.test(email);
   };
 
   const isValidPassword = (password) => {
-    const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    const passwordRegex = /^(?=.*[a-zA-Z])[A-Za-z\d]{8,}$/; // At least 8 characters including letters
     return passwordRegex.test(password);
   };
 
@@ -65,15 +65,13 @@ function LoginPage() {
     }
 
     if (!isValidPassword(password)) {
-      setError(
-        "Password must be at least 8 characters, including letters and numbers!"
-      );
+      setError("Password must be at least 8 characters, including letters!");
       return;
     }
 
     // Clear error message and navigate to the dashboard page
     setError("");
-    navigate("/dashboard");
+    navigate("/dashboard"); // Replace with your next page route
   };
 
   return (
