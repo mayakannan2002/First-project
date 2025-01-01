@@ -38,17 +38,6 @@ function LoginPage() {
     });
   };
 
-  // Validation helpers
-  const isValidEmail = (email) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email format validation
-    return emailRegex.test(email);
-  };
-
-  const isValidPassword = (password) => {
-    const passwordRegex = /^(?=.*[a-zA-Z])[A-Za-z\d]{8,}$/; // At least 8 characters including letters
-    return passwordRegex.test(password);
-  };
-
   // Handle the Sign In button click
   const handleSignIn = () => {
     const { email, password } = formData;
@@ -59,13 +48,8 @@ function LoginPage() {
       return;
     }
 
-    if (!isValidEmail(email)) {
-      setError("Invalid email address!");
-      return;
-    }
-
-    if (!isValidPassword(password)) {
-      setError("Password must be at least 8 characters, including letters!");
+    if (email !== "mayakannanc2002@gmail.com" || password !== "1234567a") {
+      setError("Invalid email or password!");
       return;
     }
 
